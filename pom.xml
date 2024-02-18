@@ -763,7 +763,7 @@
     <repositories>
         <repository>
             <id>gitlab-maven-repo-vsk-logger</id>
-            <url>https://gitlab.switch.ch/api/v4/projects/5639/packages/maven</url>
+            <url>https://gitlab.switch.ch/api/v4/projects/5589/packages/maven</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -779,7 +779,7 @@
         </repository>    
         <repository>
             <id>gitlab-maven-repo-vsk-stringpersistor</id>
-            <url>https://gitlab.switch.ch/api/v4/projects/5638/packages/maven</url>
+            <url>https://gitlab.switch.ch/api/v4/projects/5590/packages/maven</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
