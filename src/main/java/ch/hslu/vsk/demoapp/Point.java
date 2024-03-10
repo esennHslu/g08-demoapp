@@ -18,33 +18,33 @@ package ch.hslu.vsk.demoapp;
 import java.util.Objects;
 
 /**
- * Modell eines Punktes im 2D-Raum.
- * Klasse ist Immutable implementiert.
+ * Model of a point in two dimensions.
+ * Class is immutable.
  */
 public final class Point {
 
     /**
-     * Punkt keinem Quadrant zugeordnet.
+     * Point is in no quadrant.
      */
     private static final int NO_QUADRANT = 0;
 
     /**
-     * Quadrant 1. Positiv x, Positiv y.
+     * Quadrant 1. Positive x, Positive y.
      */
     private static final int QUADRANT_1 = 1;
 
     /**
-     * Quadrant 1. Negativ x, Positiv y.
+     * Quadrant 1. Negative x, Positive y.
      */
     private static final int QUADRANT_2 = 2;
 
     /**
-     * Quadrant 1. Negativ x, Negativ y.
+     * Quadrant 1. Negative x, Negative y.
      */
     private static final int QUADRANT_3 = 3;
 
     /**
-     * Quadrant 4. Positiv x, Negativ y.
+     * Quadrant 4. Positive x, Negative y.
      */
     private static final int QUADRANT_4 = 4;
 
@@ -52,9 +52,10 @@ public final class Point {
     private final int y;
 
     /**
-     * Konstruktor für Punkt mit Koordinaten.
-     * @param x x-Koordinate.
-     * @param y y-Koordinate.
+     * Constructor for point with coordinates.
+     *
+     * @param x x-Coordinate.
+     * @param y y-Coordinate.
      */
     public Point(final int x, final int y) {
         this.x = x;
@@ -62,10 +63,10 @@ public final class Point {
     }
 
     /**
-     * Liefert den Quadranten in welchem der Punkt liegt.
-     * Liegen die Koordinaten auf den Achsen oder
-     * auf dem Nullpunkt, liefert die Funktion den Wert 0 zurück.
-     * @return Nummer des Quadranten.
+     * Gets the quadrant in which the point lies.
+     * If coordinates on axes or on (0,0) it returns 0
+     *
+     * @return number of quadrant.
      */
     public int getQuadrant() {
         int quadrant = NO_QUADRANT;
@@ -88,23 +89,25 @@ public final class Point {
     }
 
     /**
-     * Liefert x-Koordinate zurück.
-     * @return x-Koordinate des Punktes.
+     * Gets the x-coordinate.
+     *
+     * @return x-coordinate of the point.
      */
     public int getX() {
         return this.x;
     }
 
     /**
-     * Liefert y-Koordinate zurück.
-     * @return y-Koordinate des Punktes.
+     * Gets the y-coordinate.
+     *
+     * @return y-coordinate of the point.
      */
     public int getY() {
         return y;
     }
 
     /**
-     * Zwei Punkte mit identischen Koordinaten sind gleich.
+     * Two points with same coordinates are equal.
      * {@inheritDoc}.
      */
     @Override
@@ -116,7 +119,7 @@ public final class Point {
     }
 
     /**
-     * Liefert Hashcode auf Basis von x und y-Koordinate.
+     * Gets the hashcode based on x and y-coordinates.
      * {@inheritDoc}.
      */
     @Override
@@ -125,7 +128,7 @@ public final class Point {
     }
 
     /**
-     * Liefert eine String-Repräsentation des Punktes.
+     * Gets a string representation for the point.
      * {@inheritDoc}.
      */
     @Override

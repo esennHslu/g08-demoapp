@@ -15,17 +15,15 @@
  */
 package ch.hslu.vsk.demoapp;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.Test;
-
-import nl.jqno.equalsverifier.EqualsVerifier;
-
 /**
- * Testfälle für Point.
+ * Testcases for point.
  */
 final class PointTest {
 
@@ -46,7 +44,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant1() {
@@ -54,7 +52,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant2() {
@@ -62,7 +60,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant3() {
@@ -70,7 +68,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant4() {
@@ -78,31 +76,31 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
-    void testGetQuadrantXAchse() {
+    void testGetQuadrantXAxis() {
         assertThat(new Point(0, 1).getQuadrant()).isZero();
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
-    void testGetQuadrantYAchse() {
+    void testGetQuadrantYAxis() {
         assertThat(new Point(1, 0).getQuadrant()).isZero();
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#getQuadrant()}.
+     * Test {ch.hslu.demo.Point#getQuadrant()}.
      */
     @Test
-    void testGetQuadrantNullpunkt() {
+    void testGetQuadrantZeroPoint() {
         assertThat(new Point(0, 0).getQuadrant()).isZero();
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#toString()}.
+     * Test {ch.hslu.demo.Point#toString()}.
      */
     @Test
     void testToString() {
@@ -110,7 +108,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#equals(java.lang.Object)} Contract.
+     * Test {ch.hslu.demo.Point#equals(java.lang.Object)} Contract.
      */
     @Test
     void testEqualsContract() {
@@ -118,7 +116,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#equals(java.lang.Object)}.
+     * Test {ch.hslu.demo.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsSame() {
@@ -128,7 +126,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#equals(java.lang.Object)}.
+     * Test {ch.hslu.demo.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsEqual() {
@@ -138,7 +136,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.demo.Point#equals(java.lang.Object)}.
+     * Test {ch.hslu.demo.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsNotEqual() {

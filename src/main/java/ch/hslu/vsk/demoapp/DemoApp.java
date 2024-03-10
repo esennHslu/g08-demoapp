@@ -15,30 +15,34 @@
  */
 package ch.hslu.vsk.demoapp;
 
+import ch.hslu.vsk.logger.component.LoggerComponent;
+
 /**
- * Demo-Applikation für {@link ch.hslu.vsk.demoapp.Point}-Klasse.
+ * Demo application for the {@link ch.hslu.vsk.demoapp.Point}-Class.
  */
 public final class DemoApp {
 
-    /** X-Wert. Beispiel. */
     private static final int COR_X = 2;
 
-    /** Y-Wert. Beispiel. */
     private static final int COR_Y = -1;
 
-    /**
-     * Privater Konstruktor.
-     */
     private DemoApp() {
     }
 
     /**
-     * Main-Methode.
-     * @param args Startargumente.
+     * Main method.
+     *
+     * @param args start arguments.
      */
     public static void main(final String[] args) {
         final Point point = new Point(COR_X, COR_Y);
         final int quadrant = point.getQuadrant();
-        System.out.println(point.toString() + " ist im Quadrant: " + quadrant);
+        String message = point + " is in quadrant: " + quadrant;
+        try {
+            LoggerComponent loggerComponent = new LoggerComponent();
+            loggerComponent.sendLog(message);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
