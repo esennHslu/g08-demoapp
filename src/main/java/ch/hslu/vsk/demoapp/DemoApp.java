@@ -15,6 +15,7 @@
  */
 package ch.hslu.vsk.demoapp;
 
+
 import ch.hslu.vsk.logger.component.LoggerComponent;
 
 /**
