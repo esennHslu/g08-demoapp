@@ -15,7 +15,11 @@
  */
 package ch.hslu.vsk.demoapp;
 
-import ch.hslu.vsk.logger.component.LoggerComponent;
+import ch.hslu.vsk.logger.api.*;
+import ch.hslu.vsk.logger.component.LoggerClient;
+
+import java.net.URI;
+import java.nio.file.Path;
 
 /**
  * Demo application for the {@link ch.hslu.vsk.demoapp.Point}-Class.
@@ -38,9 +42,23 @@ public final class DemoApp {
         final Point point = new Point(COR_X, COR_Y);
         final int quadrant = point.getQuadrant();
         String message = point + " is in quadrant: " + quadrant;
+
+        LoggerSetup loggerClient = new LoggerClient.Builder()
+                .requires(LogLevel.Info)
+                .from("demo-app")
+                .usesAsFallback(Path.of("/dev", "null"))
+                .targetsServer(URI.create("http://localhost:9999"))
+                .build();
+
+        Logger log = loggerClient.createLogger();
+
         try {
-            LoggerComponent loggerComponent = new LoggerComponent();
-            loggerComponent.sendLog(message);
+            log.debug(message);
+            log.debug("debug");
+            log.info("info");
+            log.warn("warn");
+            log.error("err");
+            log.error("err: ", new IllegalArgumentException("argument exc"));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
