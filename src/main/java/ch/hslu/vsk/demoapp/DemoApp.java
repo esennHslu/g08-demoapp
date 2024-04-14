@@ -16,6 +16,8 @@
 package ch.hslu.vsk.demoapp;
 
 
+import java.io.IOException;
+
 import ch.hslu.vsk.logger.component.LoggerComponent;
 
 /**
@@ -42,6 +44,8 @@ public final class DemoApp {
         try {
             LoggerComponent loggerComponent = new LoggerComponent();
             loggerComponent.sendLog(message);
+        } catch (IOException e) {
+            System.err.println("Failed to send log due to network issue: " + e.getMessage());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
