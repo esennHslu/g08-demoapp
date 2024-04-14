@@ -43,7 +43,8 @@ public final class DemoApp {
         final int quadrant = point.getQuadrant();
         String message = point + " is in quadrant: " + quadrant;
 
-        LoggerSetup loggerClient = new LoggerClient.Builder()
+        LoggerSetupBuilder builder = LoggerSetupBuilderFactory.create();
+        LoggerSetup loggerClient = builder
                 .requires(LogLevel.Info)
                 .from("demo-app")
                 .usesAsFallback(Path.of("/dev", "null"))
