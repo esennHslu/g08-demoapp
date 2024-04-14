@@ -15,8 +15,12 @@
  */
 package ch.hslu.vsk.demoapp;
 
+import ch.hslu.vsk.logger.api.*;
+import ch.hslu.vsk.logger.component.LoggerClient;
 
-import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Path;
+
 
 import ch.hslu.vsk.logger.component.LoggerComponent;
 
@@ -41,11 +45,24 @@ public final class DemoApp {
         final Point point = new Point(COR_X, COR_Y);
         final int quadrant = point.getQuadrant();
         String message = point + " is in quadrant: " + quadrant;
+
+        LoggerSetupBuilder builder = LoggerSetupBuilderFactory.create();
+        LoggerSetup loggerClient = builder
+                .requires(LogLevel.Info)
+                .from("demo-app")
+                .usesAsFallback(Path.of("/dev", "null"))
+                .targetsServer(URI.create("http://localhost:9999"))
+                .build();
+
+        Logger log = loggerClient.createLogger();
+
         try {
-            LoggerComponent loggerComponent = new LoggerComponent();
-            loggerComponent.sendLog(message);
-        } catch (IOException e) {
-            System.err.println("Failed to send log due to network issue: " + e.getMessage());
+            log.debug(message);
+            log.debug("debug");
+            log.info("info");
+            log.warn("warn");
+            log.error("err");
+            log.error("err: ", new IllegalArgumentException("argument exc"));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
