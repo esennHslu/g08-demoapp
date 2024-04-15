@@ -21,9 +21,6 @@ import ch.hslu.vsk.logger.component.LoggerClient;
 import java.net.URI;
 import java.nio.file.Path;
 
-
-import ch.hslu.vsk.logger.component.LoggerComponent;
-
 /**
  * Demo application for the {@link ch.hslu.vsk.demoapp.Point}-Class.
  */
