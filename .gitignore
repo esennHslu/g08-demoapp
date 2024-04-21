@@ -6,5 +6,6 @@
 /.idea/
 /out/
 /.settings/
+/Cache/
 *.log
 /dependency-reduced-pom.xml
