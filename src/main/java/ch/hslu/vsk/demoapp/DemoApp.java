@@ -16,9 +16,12 @@
 package ch.hslu.vsk.demoapp;
 
 import ch.hslu.vsk.logger.api.*;
-import ch.hslu.vsk.logger.component.LoggerClient;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 
 /**
@@ -47,21 +50,25 @@ public final class DemoApp {
         LoggerSetup loggerClient = builder
                 .requires(LogLevel.Info)
                 .from("demo-app")
-                .usesAsFallback(Path.of("/dev", "null"))
+                .usesAsFallback(Path.of("Cache","Logs.cache"))
                 .targetsServer(URI.create("http://localhost:9999"))
                 .build();
 
         Logger log = loggerClient.createLogger();
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
 
-        try {
-            log.debug(message);
-            log.debug("debug");
-            log.info("info");
-            log.warn("warn");
-            log.error("err");
-            log.error("err: ", new IllegalArgumentException("argument exc"));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        while (true) {
+            try {
+                String input = userInput.readLine();
+                log.debug(message);
+                log.debug(input);
+                log.info(input);
+                log.warn(input);
+                log.error(input);
+                log.error("err: ", new IllegalArgumentException(input));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
