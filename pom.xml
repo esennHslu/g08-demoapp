@@ -21,7 +21,7 @@
 
     <groupId>ch.hslu.vsk24fs.g08</groupId>
     <artifactId>g08-demoapp</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0</version>
     <packaging>jar</packaging>
 
     <name>g08-demoapp</name>
@@ -135,7 +135,7 @@
             <dependency>
                 <groupId>ch.hslu.vsk24fs.g08</groupId>
                 <artifactId>g08-loggercomponent</artifactId>
-                <version>4.0.0-SNAPSHOT</version>
+                <version>4.0.0</version>
                 <scope>compile</scope>
             </dependency>
 
